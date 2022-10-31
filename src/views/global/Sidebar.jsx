@@ -44,21 +44,62 @@ const Sidebar = () => {
         },
       }}
     >
-      {!isCollapsed && (
-        <Box
-          display="flex"
-          justifyConent="space-between"
-          alignItems="center"
-          ml="15px"
-        >
-          <Typography variant="h3" color={colors.grey[100]}>
-            Admins
-          </Typography>
-          <IconButton onClick={() => setIsCollapsed(!isCollapsed)}>
-            <MenuOutlined />
-          </IconButton>
-        </Box>
-      )}
+      <ProSidebar collapsed={isCollapsed}>
+        <Menu iconShape="square">
+          <MenuItem
+            onClick={() => setIsCollapsed(!isCollapsed)}
+            icon={isCollapsed ? <MenuOutlined /> : undefined}
+            style={{
+              margin: "10px 0 20px 0",
+              color: colors.grey[100],
+            }}
+          >
+            {!isCollapsed && (
+              <Box
+                display="flex"
+                justifyConent="space-between"
+                alignItems="center"
+                ml="15px"
+              >
+                <Typography variant="h3" color={colors.grey[100]}>
+                  Admins
+                </Typography>
+                <IconButton onClick={() => setIsCollapsed(!isCollapsed)}>
+                  <MenuOutlined />
+                </IconButton>
+              </Box>
+            )}
+          </MenuItem>
+
+          {!isCollapsed && (
+            <Box mb="25px">
+              <Box display="flex" justifyContent="center" alignItems="center">
+                <img
+                  alt="profile-user"
+                  width="100px"
+                  height="100px"
+                  src=""
+                  style={{ cursor: "pointer", borderRadius: "50%" }}
+                />
+              </Box>
+
+              <Box textAlign="center">
+                <Typography
+                  variant="h2"
+                  color={colors.grey[100]}
+                  fontWeight="bold"
+                  sx={{ m: "10px 0 0 0" }}
+                >
+                  Million Tenkir
+                </Typography>
+                <Typography variant="h5" color={colors.greenAccent[500]}>
+                  Dan Energy
+                </Typography>
+              </Box>
+            </Box>
+          )}
+        </Menu>
+      </ProSidebar>
     </Box>
   );
 };
