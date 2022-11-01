@@ -19,7 +19,23 @@ import {
   MenuOutlined,
   ManOutlined,
 } from "@mui/icons-material";
-import image1 from "../../Images/me.jpg"
+import image1 from "../../Images/me.jpg";
+
+const Item = ({ title, to, icon, selected, setSelected }) => {
+  const theme = useTheme();
+  const colors = tokens(theme.palette.mode);
+  return (
+    <MenuItem
+      active={selected === title}
+      style={{ color: colors.grey[100] }}
+      onclick={() => setSelected(title)}
+      icon={icon}
+    >
+      <Typography>{title}</Typography>
+      <Link to={to} />
+    </MenuItem>
+  );
+};
 
 const Sidebar = () => {
   const theme = useTheme();
@@ -100,6 +116,57 @@ const Sidebar = () => {
               </Box>
             </Box>
           )}
+
+          <Box padding={isCollapsed ? undefined : "10%"}>
+            <Item
+              title="Dashboard"
+              to="/"
+              icon={<HomeOutlined />}
+              setSelected={setSelected}
+            />
+            <Item
+              title="Manage Team"
+              to="/team"
+              icon={<PeopleOutlineOutlined />}
+              setSelected={setSelected}
+            />
+            <Item
+              title="Contact Information"
+              to="/contacts"
+              icon={<ContactsOutlined />}
+              setSelected={setSelected}
+            />
+            <Item
+              title="Invoices Balances"
+              to="/invoices"
+              icon={<ReceiptOutlined />}
+              setSelected={setSelected}
+            />
+            <Item
+              title="Profile Form"
+              to="/profile"
+              icon={<PersonOutlined />}
+              setSelected={setSelected}
+            />
+            <Item
+              title="Calendar"
+              to="/calendar"
+              icon={<CalendarTodayOutlined />}
+              setSelected={setSelected}
+            />
+            <Item
+              title="FAQ"
+              to="/faq"
+              icon={<HelpOutlined />}
+              setSelected={setSelected}
+            />
+            <Item
+              title="Line Chart"
+              to="/linechart"
+              icon={<TimelineOutlined />}
+              setSelected={setSelected}
+            />
+          </Box>
         </Menu>
       </ProSidebarProvider>
     </Box>
