@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useProSidebar, Menu, MenuItem } from "react-pro-sidebar";
-import "react-pro-sidebar/dist/css/styles.css";
+// import "react-pro-sidebar/dist/css/styles.css";
+import { ProSidebarProvider } from "react-pro-sidebar";
 import { Box, IconButton, Typography, useTheme } from "@mui/material";
 import { Link } from "react-router-dom";
 import { tokens } from "../../theme";
@@ -18,6 +19,7 @@ import {
   MenuOutlined,
   ManOutlined,
 } from "@mui/icons-material";
+import image1 from "../../Images/me.jpg"
 
 const Sidebar = () => {
   const theme = useTheme();
@@ -30,8 +32,8 @@ const Sidebar = () => {
         "& .pro-sidebar-inner": {
           background: `${colors.primary[400]} !important`,
         },
-        "& .pro-sidebar-wrapper": {
-          backgroundColor: "transparent !important",
+        "& .pro-icon-wrapper": {
+          backgroundColor: `transparent !important`,
         },
         "& .pro-inner-item": {
           padding: "5px 35px 5px 20px !important",
@@ -40,11 +42,11 @@ const Sidebar = () => {
           color: "#868dfb !important",
         },
         "& .pro-menu-item.active": {
-          color: "#6870fa !important",
+          color: "#6870fa",
         },
       }}
     >
-      <ProSidebar collapsed={isCollapsed}>
+      <ProSidebarProvider collapsed={isCollapsed}>
         <Menu iconShape="square">
           <MenuItem
             onClick={() => setIsCollapsed(!isCollapsed)}
@@ -78,7 +80,7 @@ const Sidebar = () => {
                   alt="profile-user"
                   width="100px"
                   height="100px"
-                  src=""
+                  src={image1}
                   style={{ cursor: "pointer", borderRadius: "50%" }}
                 />
               </Box>
@@ -99,7 +101,7 @@ const Sidebar = () => {
             </Box>
           )}
         </Menu>
-      </ProSidebar>
+      </ProSidebarProvider>
     </Box>
   );
 };
