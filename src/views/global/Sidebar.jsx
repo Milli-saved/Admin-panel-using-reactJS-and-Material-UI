@@ -55,7 +55,7 @@ const Sidebar = () => {
           padding: "5px 35px 5px 20px !important",
         },
         "& .pro-inner-item:hover": {
-          color: "#868dfb !important",
+          color: "#dc7233 !important",
         },
         "& .pro-menu-item.active": {
           color: "#6870fa",
@@ -124,48 +124,48 @@ const Sidebar = () => {
               icon={<HomeOutlined />}
               setSelected={setSelected}
             />
-            <Item
+            {/* <Item
               title="Manage Team"
               to="/team"
               icon={<PeopleOutlineOutlined />}
               setSelected={setSelected}
-            />
-            <Item
+            /> */}
+            {/* <Item
               title="Contact Information"
               to="/contacts"
               icon={<ContactsOutlined />}
               setSelected={setSelected}
-            />
-            <Item
+            /> */}
+            {/* <Item
               title="Invoices Balances"
               to="/invoices"
               icon={<ReceiptOutlined />}
               setSelected={setSelected}
-            />
-            <Item
+            /> */}
+            {/* <Item
               title="Profile Form"
               to="/profile"
               icon={<PersonOutlined />}
               setSelected={setSelected}
-            />
-            <Item
+            /> */}
+            {/* <Item
               title="Calendar"
               to="/calendar"
               icon={<CalendarTodayOutlined />}
               setSelected={setSelected}
-            />
-            <Item
+            /> */}
+            {/* <Item
               title="FAQ"
               to="/faq"
               icon={<HelpOutlined />}
               setSelected={setSelected}
-            />
-            <Item
+            /> */}
+            {/* <Item
               title="Line Chart"
               to="/linechart"
               icon={<TimelineOutlined />}
               setSelected={setSelected}
-            />
+            /> */}
           </Box>
         </Menu>
       </ProSidebarProvider>
