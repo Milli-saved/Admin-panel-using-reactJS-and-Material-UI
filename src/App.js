@@ -8,7 +8,7 @@ import Team from "./views/team";
 import Invoices from "./views/invoices";
 import Contacts from "./views/contacts";
 // import Bar from "./views/bar";
-// import Form from "./views/form";
+import Form from "./views/form";
 // import Line from "./views/line";
 // import Pie from "./views/pie";
 // import FAQ from "./views/faq";
@@ -31,7 +31,7 @@ function App() {
               <Route path="/team" element={<Team />} />
               <Route path="/contacts" element={<Contacts />} />
               <Route path="/invoices" element={<Invoices />} />
-              {/* <Route path="/form" element={<Form />} /> */}
+              <Route path="/form" element={<Form />} />
               {/* <Route path="/bar" element={<Bar />} /> */}
               {/* <Route path="/pie" element={<Pie />} /> */}
               {/* <Route path="/line" element={<Line />} /> */}
