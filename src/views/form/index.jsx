@@ -3,6 +3,8 @@ import { Formik } from "formik";
 import * as yup from "yup";
 import { useMediaQuery } from "@mui/material";
 import Header from "../../components/Header";
+import SignatureCanvas from "react-signature-canvas";
+import { useRef, useState } from "react";
 
 const initialValues = {
   firstName: "",
@@ -11,7 +13,7 @@ const initialValues = {
   contact: "",
   address1: "",
   address2: "",
-  signature: ""
+  signature: null,
 };
 
 // const phoneRegExp =
@@ -26,9 +28,18 @@ const userSchema = yup.object().shape({
 });
 
 const Form = () => {
+  const [data, setData] = useState(initialValues);
   const isNonMobile = useMediaQuery("(min-width: 600px)");
   const handleFormSubmit = (values) => {
     console.log(values);
+  };
+  let signPad = useRef({});
+  const anotherSignature = () => {
+    signPad.current.clear();
+  };
+  const useSignature = () => {
+    const tempSignature = signPad.current.toDataURL();
+    console.log(tempSignature);
   };
   return (
     <Box m="20px">
@@ -134,6 +145,32 @@ const Form = () => {
                 helperText={touched.address2 && errors.address2}
                 sx={{ gridColumn: "span 4" }}
               />
+              <Box>
+                <SignatureCanvas
+                  penColor="black"
+                  backgroundColor="grey"
+                  canvasProps={{ width: "200px", height: "80px" }}
+                  ref={signPad}
+                />
+                <Box>
+                  <Button
+                    onClick={anotherSignature}
+                    sx={{ margin: "4px" }}
+                    variant="outlined"
+                    color="primary"
+                  >
+                    Try another
+                  </Button>
+                  <Button
+                    onClick={useSignature}
+                    sx={{ margin: "4px" }}
+                    variant="outlined"
+                    color="primary"
+                  >
+                    Use Signature
+                  </Button>
+                </Box>
+              </Box>
             </Box>
             <Box display="flex" justifyContent="end" mt="20px">
               <Button type="submit" color="secondary" variant="outlined">
