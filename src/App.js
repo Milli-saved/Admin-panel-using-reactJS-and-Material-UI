@@ -14,6 +14,7 @@ import Form from "./views/form";
 // import FAQ from "./views/faq";
 // import Geography from "./views/geography";
 import Calendar from "./views/calendar";
+import Signature from "./views/signature";
 
 function App() {
   const [theme, colorMode] = useMode();
@@ -38,6 +39,7 @@ function App() {
               {/* <Route path="/faq" element={<FAQ />} /> */}
               {/* <Route path="/geography" element={<Geography />} /> */}
               <Route path="/calendar" element={<Calendar />} />
+              <Route path="/signature" element={<Signature />} />
             </Routes>
           </main>
         </div>
