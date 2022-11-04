@@ -11,6 +11,7 @@ const initialValues = {
   contact: "",
   address1: "",
   address2: "",
+  signature: ""
 };
 
 // const phoneRegExp =

@@ -1,5 +1,5 @@
 import { ColorModeContext, useMode } from "./theme";
-import { CssBaseline, ThemeProvider } from "@mui/material";
+import { CssBaseline, ThemeProvider, Box } from "@mui/material";
 import { Routes, Route } from "react-router-dom";
 import Topbar from "./views/global/Topbar";
 import Sidebar from "./views/global/Sidebar";
@@ -23,7 +23,7 @@ function App() {
     <ColorModeContext.Provider value={colorMode}>
       <ThemeProvider theme={theme}>
         <CssBaseline />
-        <div className="app">
+        <Box  className="app">
           <Sidebar />
           <main className="content">
             <Topbar />
@@ -42,7 +42,7 @@ function App() {
               <Route path="/signature" element={<Signature />} />
             </Routes>
           </main>
-        </div>
+        </Box>
       </ThemeProvider>
     </ColorModeContext.Provider>
   );
