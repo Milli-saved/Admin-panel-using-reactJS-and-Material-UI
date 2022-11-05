@@ -28,10 +28,12 @@ const userSchema = yup.object().shape({
 });
 
 const Form = () => {
-  const [data, setData] = useState(initialValues);
+  // const [data, setData] = useState(initialValues);
+  const [tempSignature, setTempSignature] = useState("");
   const isNonMobile = useMediaQuery("(min-width: 600px)");
   const handleFormSubmit = (values) => {
     console.log(values);
+    values.signature = tempSignature;
   };
   let signPad = useRef({});
   const anotherSignature = () => {
@@ -39,7 +41,7 @@ const Form = () => {
   };
   const useSignature = () => {
     const tempSignature = signPad.current.toDataURL();
-    console.log(tempSignature);
+    setTempSignature(tempSignature);
   };
   return (
     <Box m="20px">
