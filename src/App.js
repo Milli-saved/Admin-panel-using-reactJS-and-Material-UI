@@ -7,14 +7,14 @@ import Dashboard from "./views/dashboard";
 import Team from "./views/team";
 import Invoices from "./views/invoices";
 import Contacts from "./views/contacts";
-// import Bar from "./views/bar";
+import Calendar from "./views/calendar";
 import Form from "./views/form";
+import FAQ from "./views/faq";
+import Signature from "./views/signature";
+// import Bar from "./views/bar";
 // import Line from "./views/line";
 // import Pie from "./views/pie";
-// import FAQ from "./views/faq";
 // import Geography from "./views/geography";
-import Calendar from "./views/calendar";
-import Signature from "./views/signature";
 
 function App() {
   const [theme, colorMode] = useMode();
@@ -23,7 +23,7 @@ function App() {
     <ColorModeContext.Provider value={colorMode}>
       <ThemeProvider theme={theme}>
         <CssBaseline />
-        <Box  className="app">
+        <Box className="app">
           <Sidebar />
           <main className="content">
             <Topbar />
@@ -33,13 +33,13 @@ function App() {
               <Route path="/contacts" element={<Contacts />} />
               <Route path="/invoices" element={<Invoices />} />
               <Route path="/form" element={<Form />} />
+              <Route path="/calendar" element={<Calendar />} />
+              <Route path="/faq" element={<FAQ />} />
+              <Route path="/signature" element={<Signature />} />
               {/* <Route path="/bar" element={<Bar />} /> */}
               {/* <Route path="/pie" element={<Pie />} /> */}
               {/* <Route path="/line" element={<Line />} /> */}
-              {/* <Route path="/faq" element={<FAQ />} /> */}
               {/* <Route path="/geography" element={<Geography />} /> */}
-              <Route path="/calendar" element={<Calendar />} />
-              <Route path="/signature" element={<Signature />} />
             </Routes>
           </main>
         </Box>
